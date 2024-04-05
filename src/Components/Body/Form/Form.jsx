@@ -15,7 +15,10 @@ function Form() {
       .then((data) => {
         // Extract country names from the data
         const countryNames = data.map((country) => country.name.common);
-        setCountries(countryNames);
+        const sortedCountryNames = countryNames.sort((a, b) =>
+          a.localeCompare(b)
+        );
+        setCountries(sortedCountryNames);
       })
       .catch((error) => {
         console.error("There was a problem with your fetch operation:", error);
