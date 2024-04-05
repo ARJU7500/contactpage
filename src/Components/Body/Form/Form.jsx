@@ -1,5 +1,31 @@
+import { useState, useEffect } from "react";
+
 function Form() {
-  // let url = "https://restcountries.com/v3.1/all";
+  const [countries, setCountries] = useState([]);
+  const [selectedCountry, setSelectedCountry] = useState("");
+
+  useEffect(() => {
+    fetch("https://restcountries.com/v3.1/all")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        // Extract country names from the data
+        const countryNames = data.map((country) => country.name.common);
+        setCountries(countryNames);
+      })
+      .catch((error) => {
+        console.error("There was a problem with your fetch operation:", error);
+      });
+  }, []);
+
+  const handleChange = (event) => {
+    setSelectedCountry(event.target.value);
+  };
+
   return (
     <div className="bg-white shadow-lg p-5 w-full rounded-md lg:w-[600px] lg:p-10 ">
       <div>
@@ -79,6 +105,8 @@ function Form() {
         </div>
         <div className="mb-5">
           <select
+            value={selectedCountry}
+            onChange={handleChange}
             type="text"
             name="name"
             id="name"
@@ -86,9 +114,12 @@ function Form() {
             required
             className="w-[100%] rounded-md border border-[#e0e0e0] bg-white py-2 px-3 text-base font-medium text-[#6B7280] outline-none focus:shadow-md  lg:w-full"
           >
-            <option>Country</option>
-            <option>India</option>
-            <option>UAE</option>
+            <option>Select Country*</option>
+            {countries.map((country, index) => (
+              <option key={index} value={country}>
+                {country}
+              </option>
+            ))}
           </select>
         </div>
         <div className="mb-5">
@@ -101,9 +132,12 @@ function Form() {
             placeholder="Company website*"
             className="w-[100%]  rounded-md border border-[#e0e0e0] bg-white py-2 px-3 text-base font-medium text-[#6B7280] outline-none focus:shadow-md lg:w-full"
           >
-            <option>Select Annual sales </option>
-            <option>India</option>
-            <option>UAE</option>
+            <option>Select Annual sales* </option>
+            <option>1Lac-50Lac</option>
+            <option>50Lac-1cr</option>
+            <option>1cr-50cr</option>
+            <option>50cr-10m</option>
+            <option>other</option>
           </select>
         </div>
         <div className="mb-5">
@@ -116,7 +150,7 @@ function Form() {
             placeholder="Company website*"
             className="w-[100%] rounded-md border border-[#e0e0e0] bg-white py-2 px-3 text-base font-medium text-[#6B7280] outline-none focus:shadow-md lg:w-full"
           >
-            <option>Do you have already papyl account</option>
+            <option>Do you have already papyl account*</option>
             <option>yes</option>
             <option>no</option>
           </select>
