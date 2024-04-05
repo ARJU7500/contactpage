@@ -6,27 +6,30 @@ function Form() {
 
   useEffect(() => {
     fetch("https://restcountries.com/v3.1/all")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
+      // 1st promise
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network Shi krne ka ");
         }
-        return response.json();
+        // convert into json data
+        return res.json();
       })
       .then((data) => {
-        // Extract country names from the data
+        // map fuction like a loop
         const countryNames = data.map((country) => country.name.common);
+        // srting bat name a to z
         const sortedCountryNames = countryNames.sort((a, b) =>
           a.localeCompare(b)
         );
         setCountries(sortedCountryNames);
       })
-      .catch((error) => {
-        console.error("There was a problem with your fetch operation:", error);
+      .catch((e) => {
+        console.error("Thoda check kr kuch big gya h ", e);
       });
   }, []);
 
-  const handleChange = (event) => {
-    setSelectedCountry(event.target.value);
+  const handleChange = (e) => {
+    setSelectedCountry(e.target.value);
   };
 
   return (
