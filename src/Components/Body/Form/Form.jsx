@@ -101,7 +101,7 @@ function Form() {
             placeholder="Company website*"
             className="w-[100%]  rounded-md border border-[#e0e0e0] bg-white py-2 px-3 text-base font-medium text-[#6B7280] outline-none focus:shadow-md lg:w-full"
           >
-            <option>Country</option>
+            <option>Select Annual sales </option>
             <option>India</option>
             <option>UAE</option>
           </select>
@@ -116,9 +116,9 @@ function Form() {
             placeholder="Company website*"
             className="w-[100%] rounded-md border border-[#e0e0e0] bg-white py-2 px-3 text-base font-medium text-[#6B7280] outline-none focus:shadow-md lg:w-full"
           >
-            <option>Country</option>
-            <option>India</option>
-            <option>UAE</option>
+            <option>Do you have already papyl account</option>
+            <option>yes</option>
+            <option>no</option>
           </select>
         </div>
         <div className="mb-5 flex gap-2">

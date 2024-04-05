@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="mt-[150px] md:mt-[700px] lg:my-[150px]">
+    <div className="mt-[150px] md:mt-[700px] lg:mt-[150px]">
       <div className="px-4 lg:flex lg:justify-between lg:items-start lg:px-36">
         {/* 1st */}
         <div className="lg:w-[33%]">
