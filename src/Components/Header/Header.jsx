@@ -28,7 +28,7 @@ const Header = () => {
               />
             </Link>
           </div>
-          <ul className="hidden md:flex md:flex-wrap md:justify-start md:items-start text-[12px] md:text-[14px] lg:text-lg">
+          <ul className="hidden md:flex md:flex-wrap md:justify-start md:items-start text-[12px] md:text-[14px] md:text-xl lg:text-lg">
             {navItems.map((item) => (
               <li key={item.id}>
                 <a
@@ -44,13 +44,13 @@ const Header = () => {
         <div className="hidden md:block">
           <Link
             to="#"
-            className="text-[#002f87] border-solid border-2 border-[#002f87] hover:bg-[#002f87] hover:text-white font-medium rounded-2xl text-sm p-2 px-5 mr-2"
+            className="text-[#002f87] border-solid border-2 border-[#002f87] hover:bg-[#002f87] hover:text-white font-medium rounded-2xl text-sm p-2 px-5 mr-2 md:text-xl lg:text-base"
           >
             Log In
           </Link>
           <Link
             to="#"
-            className="text-white bg-[#002f87] hover:bg-white hover:text-[#002f87] hover: border-solid border-2 border-[#002f87] font-medium rounded-2xl text-sm p-2 px-5"
+            className="text-white bg-[#002f87] hover:bg-white hover:text-[#002f87] hover: border-solid border-2 border-[#002f87] font-medium rounded-2xl text-sm p-2 px-5 md:text-xl lg:text-base"
           >
             Sign Up
           </Link>
